@@ -46,7 +46,6 @@ curl -XPOST -H"Content-Type: application/json" http://localhost:8080 -d "{\"NAME
 ```bash
 cf domains # inspect your domains
 DOMAIN=apps.<YOUR_DOMAIN>
-HTTP_PORT=80
 
 ./gradlew clean build
 cf push eva-webhook-demo -p ./build/libs/eva-webhook-demo-0.0.1-SNAPSHOT.jar -d ${DOMAIN}
@@ -55,7 +54,7 @@ cf push eva-webhook-demo -p ./build/libs/eva-webhook-demo-0.0.1-SNAPSHOT.jar -d 
 ## Create an Event Alerts target and subscription
 
 ```bash
-cf eva-create-target demo-target webhook http://eva-webhook-demo.${DOMAIN}:${HTTP_PORT} # not https!
+cf eva-create-target demo-target webhook http://eva-webhook-demo.${DOMAIN} # not https!
 cf eva-subscribe demo-target healthwatch --topics rep.unhealthycell
 ```
 
@@ -71,11 +70,3 @@ cf logs eva-webhook-demo | grep "PAYLOAD"
 ```bash
 cf eva-sample-publish healthwatch rep.unhealthycell
 ```
-
-## Using apps.internal domain (untested)
-
-If you want to deploy on `apps.internal` you'll need to set a network policy beween the 
-`event-alerts` app (in system/event-alerts) and your webhook app.
-Additionally, you'll need to set the HTTP_PORT variable to 8080.
-
-See [this](https://github.com/amcginlay/pcf-c2c-networking) for more info
