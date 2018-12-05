@@ -66,7 +66,6 @@ If Java SDK is not present:
 ```bash
 cf push eva-webhook-demo -p eva-webhook-demo-0.0.1-SNAPSHOT.jar -d apps.${YOUR_DOMAIN}
 ```
-```
 
 ## Create an Event Alerts target and subscription
 
