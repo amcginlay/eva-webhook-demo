@@ -29,7 +29,9 @@ cf eva-targets
 cf eva-subscriptions
 ```
 
-## Clone and test this repo
+## Run the code
+
+If Java SDK is present:
 
 ```bash
 git clone https://github.com/amcginlay/eva-webhook-demo.git
@@ -37,11 +39,22 @@ cd eva-webhook-demo
 ./gradlew bootRun
 ```
 
+If Java SDK is not present:
+
+```bash
+wget https://github.com/amcginlay/eva-webhook-demo/releases/download/0.0.1-SNAPSHOT/eva-webhook-demo-0.0.1-SNAPSHOT.jar
+java -jar eva-webhook-demo-0.0.1-SNAPSHOT.jar
+```
+
+## Exercise the endpoint
+
 ```bash
 curl -XPOST -H"Content-Type: application/json" http://localhost:8080 -d "{\"NAME\": \"VALUE\"}"
 ```
 
 ## Build artifact and push to an internal route on Cloud Foundry
+
+
 
 ```bash
 cf domains # inspect your domains
