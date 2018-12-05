@@ -54,14 +54,18 @@ curl -XPOST -H"Content-Type: application/json" http://localhost:8080 -d "{\"NAME
 
 ## Build artifact and push to an internal route on Cloud Foundry
 
-
+If Java SDK is present:
 
 ```bash
-cf domains # inspect your domains
-DOMAIN=apps.<YOUR_DOMAIN>
-
 ./gradlew clean build
-cf push eva-webhook-demo -p ./build/libs/eva-webhook-demo-0.0.1-SNAPSHOT.jar -d ${DOMAIN}
+cf push eva-webhook-demo -p ./build/libs/eva-webhook-demo-0.0.1-SNAPSHOT.jar -d apps.${YOUR_DOMAIN}
+```
+
+If Java SDK is not present:
+
+```bash
+cf push eva-webhook-demo -p eva-webhook-demo-0.0.1-SNAPSHOT.jar -d apps.${YOUR_DOMAIN}
+```
 ```
 
 ## Create an Event Alerts target and subscription
