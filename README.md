@@ -58,13 +58,13 @@ If Java SDK is present:
 
 ```bash
 ./gradlew clean build
-cf push eva-webhook-demo -p ./build/libs/eva-webhook-demo-0.0.1-SNAPSHOT.jar -d apps.${YOUR_DOMAIN}
+cf push eva-webhook-demo -p ./build/libs/eva-webhook-demo-0.0.1-SNAPSHOT.jar
 ```
 
 If Java SDK is not present:
 
 ```bash
-cf push eva-webhook-demo -p eva-webhook-demo-0.0.1-SNAPSHOT.jar -d apps.${YOUR_DOMAIN}
+cf push eva-webhook-demo -p eva-webhook-demo-0.0.1-SNAPSHOT.jar
 ```
 
 ## Create an Event Alerts target and subscription
