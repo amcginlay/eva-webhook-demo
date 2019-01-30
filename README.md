@@ -52,7 +52,7 @@ java -jar eva-webhook-demo-0.0.1-SNAPSHOT.jar
 curl -XPOST -H"Content-Type: application/json" http://localhost:8080 -d "{\"NAME\": \"VALUE\"}"
 ```
 
-## Build artifact and push to an internal route on Cloud Foundry
+## Build artifact and push to Cloud Foundry
 
 If Java SDK is present:
 
