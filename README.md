@@ -89,5 +89,5 @@ cf eva-sample-publish healthwatch rep.unhealthycell
 
 ## Try out a real event
 
-Use the webhook app to subscribe to the `healthwatch.health.check.opsman.available` and stop the OPs Manager VM.
-Healthwatch will take a minute or two to observe the outage.
+Use the webhook app to subscribe to the `healthwatch.health.check.opsman.available` and stop the Ops Manager VM.
+Healthwatch will take a minute or two to observe the outage and the webhook endpoint will be invoked shortly after.
